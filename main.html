@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lei Fan – Personal Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      font-size: 20px;
+      margin: 0 auto;
+      max-width: 1200px;
+      padding: 40px 20px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1, h2 {
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+      color: #2c3e50;
+    }
+
+    .profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .profile img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .contact a {
+      text-decoration: none;
+      margin-right: 0px;
+    }
+
+    .about {
+      margin-top: 20px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .news-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      gap: 10px;
+    }
+
+    .news-icon {
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+    .news-date {
+      color: #e44;
+      white-space: nowrap;
+      font-size: 0.9em;
+    }
+
+    .news-content {
+      flex-grow: 1;
+      font-size: 0.95em;
+      line-height: 1.4;
+    }
+
+    .venue {
+      color: green;
+      font-weight: bold;
+    }
+
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .paper-count {
+  font-weight: bold;
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+.paper-count.one {
+  color: #1e90ff; /* DodgerBlue */
+}
+
+.paper-count.two {
+  color: #e67e22; /* Orange */
+}
+
+.paper-count.three {
+  color: #e74c3c; /* Red */
+}
+
+.paper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-left: 4px solid green;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* 期刊论文左边线为蓝色 */
+.journal-paper {
+  border-left: 4px solid #3498db;
+}
+
+.paper img {
+  width: 320px;
+  height: auto;
+  border-radius: 4px;
+  object-fit: contain;
+  flex-shrink: 0; /* 防止图片被压缩 */
+}
+
+.title {
+  font-size: 1.1em;
+  font-weight: 600;
+  font-family: "Segoe UI", sans-serif;
+  margin-bottom: 4px;
+}
+
+.conference {
+  font-style: italic;
+  font-size: 0.95em;
+  font-family: "Georgia", serif;
+  color: #555;
+  margin: 4px 0;
+}
+
+.pub-meta {
+  color: #444;
+  font-size: 0.95em;
+  margin-bottom: 4px;
+}
+
+.links a {
+  text-decoration: none;
+  color: #007acc;
+  margin-right: 8px;
+  font-size: 0.9em;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 0.75em;
+  font-weight: bold;
+  border-radius: 4px;
+  margin-top: 4px;
+  margin-right: 6px;
+  color: white;
+}
+
+.ccf-a { background-color: #e74c3c; }     /* 红色 */
+.ccf-b { background-color: #f39c12; }     /* 橙色 */
+.ccf-c { background-color: #3498db; }     /* 蓝色 */
+.core-a { background-color: #2ecc71; }    /* 绿色 */
+
+.thumbnail {
+  cursor: zoom-in;
+  width: 160px;
+  border-radius: 4px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Lightbox 样式 */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 6px;
+  box-shadow: 0 0 20px #000;
+  cursor: zoom-out;
+}
+
+.activities {
+  margin-top: 40px;
+  padding: 20px;
+  background: #fafafa;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.activities h2 {
+  font-size: 1.6em;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 6px;
+  color: #2c3e50;
+}
+
+.activities ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.activities li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.activities .subhead {
+  font-weight: bold;
+  color: #34495e;
+  display: inline-block;
+  margin: 6px 0;
+}
+
+.activities a {
+  color: #007acc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.activities a:hover {
+  text-decoration: underline;
+}
+
+
+  </style>
+</head>
+<body>
+
+<div class="profile">
+  <img src="./assets/profile.jpg" alt="Lei Fan" />
+  <div>
+    <h1>Lei Fan</h1>
+    <div>Postdoctoral Fellow at CHeBA, UNSW</div>
+
+    <div class="contact" style="display: flex; align-items: center;  flex-wrap: wrap;">
+  <a href="https://www.linkedin.com/in/lei-fan-227306246/" target="_blank">
+    <img src="./assets/linkedin.svg" alt="LinkedIn" style="width: 20px; ">
+  </a>
+  <a href="https://scholar.google.com/citations?user=GgQ-q0oAAAAJ&hl=zh-CN" target="_blank">
+    <img src="./assets/Google_Scholar_logo.svg" alt="Google Scholar" style="width: 20px; ">
+  </a>
+  <span>📧 lei.fan1 (at) unsw (dot) edu (dot) au</span>
+</div>
+  </div>
+</div>
+
+
+
+
+
+
+  <div class="about">
+    <h2>About Me</h2>
+    <p>I am currently a Postdoctoral Fellow at the Centre for Healthy Brain Ageing (CHeBA), UNSW. I received my PhD from UNSW Sydney in 2024, specializing in computer vision and machine learning.</p>
+    <p><strong>My Research Interests:</strong></p>
+    <ul>
+      <li>Whole Slide Image Analysis</li>
+      <li>Visual Anomaly Detection</li>
+      <li>Grain Image Analysis</li>
+      <li>MRI Data Analysis</li>
+    </ul>
+  </div>
+
+
+
+
+  <div class="news">
+    <h2>News</h2>
+
+    <div class="news-item">
+      <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2025–05]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as Corr*)</span> has been accepted for 
+        <span class="venue">TIM (IF: 5.6)</span>.<br>       
+        <span class="paper-count two">2 papers (as Corr* and Equa+)</span> have been accepted for 
+        <span class="venue">MICCAI2025 (Early Accept!)</span>.
+      </div>
+    </div>
+
+    <div class="news-item">
+      <img src="assets/koala.png" class="news-icon" alt="News icon">
+      
+      <div class="news-date">[2025–04]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as Corr*)</span> has been accepted for 
+        <span class="venue">IJCAI2025</span>.
+      </div>
+    </div>
+
+    <div class="news-item">
+      <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2025–03]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as Corr*)</span> has been accepted for 
+        <span class="venue">PR (IF: 7.5)</span>.<br>  
+        <span class="paper-count two">2 papers (as Corr* and Corr*)</span> have been accepted for 
+        <span class="venue">ICME2025</span>.
+        
+      </div>
+    </div>
+
+    <div class="news-item">
+      <img src="assets/koala.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2025–02]</div>
+      <div class="news-content">
+        <span class="paper-count three">3 papers (as First, Equa+ and Equa+)</span> 
+        have been accepted for 
+        <span class="venue">CVPR2025</span>.
+      </div>
+    </div>
+
+    <div class="news-item">
+      <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2024–12]</div>
+      <div class="news-content">
+         <span class="paper-count one">1 paper (as First)</span> has been accepted for 
+        <span class="venue">IEEE TII (IF: 11.7)</span>.<br>       
+        <span class="paper-count one">1 paper</span> has been accepted for 
+        <span class="venue">AAAI2025</span>.
+      </div>
+    </div>
+
+    <div class="news-item">
+      <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2024–11]</div>
+      <div class="news-content">
+         <span class="paper-count one">1 paper (as Corr*)</span> has been accepted for 
+        <span class="venue">IEEE TIM (IF: 5.6)</span>.<br>       
+      </div>
+    </div>
+
+    <div class="news-item">
+      <img src="assets/koala.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2024–10]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as Corr*)</span> has been accepted for 
+        <span class="venue">BIBM2024</span>.
+      </div>
+    </div>
+
+    <div class="news-item">
+      <img src="assets/koala.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2023–12]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as First)</span> has been accepted for 
+        <span class="venue">ICASSP2024</span>.
+      </div>
+    </div>
+
+    <div class="news-item">
+      <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2024–11]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as First)</span> has been accepted for 
+        <span class="venue">IEEE RA-L (IF: 5.2)</span>. <br>
+        <span class="paper-count one">1 paper (as First)</span> has been accepted for
+        <span class="venue">cientific Data (IF: 9.8)</span>. <br>
+      </div>
+    </div>
+
+        <div class="news-item">
+      <img src="assets/koala.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2023–07]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as First)</span> has been accepted for 
+        <span class="venue">ECAI2023</span>.
+      </div>
+    </div>
+
+
+       <div class="news-item">
+      <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2022–10]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as First)</span> has been accepted for 
+        <span class="venue">IEEE TMI (IF: 10.6)</span>. 
+      </div>
+    </div>
+
+
+        <div class="news-item">
+      <img src="assets/koala.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2022–05]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as First)</span> has been accepted for 
+        <span class="venue">MICCAI2022</span>. <br>
+        <span class="paper-count one">1 paper (as First)</span> has been accepted for 
+        <span class="venue">CVPR2022</span>.
+      </div>
+    </div>
+
+
+        <div class="news-item">
+      <img src="assets/koala.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2021–05]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as First)</span> has been accepted for 
+        <span class="venue">MICCAI2021 (Early Accept!)</span>.
+      </div>
+    </div>
+
+    <!-- 可继续添加更多新闻项... -->
+  </div>
+
+
+  <h2>Publications</h2>
+<p class="pub-meta">(✦ Equal Contributions, 12 (Co-) First Author, 6 (Last) Corresponding Author)</p>
+
+<h3>2025 </h3>
+
+
+
+
+
+
+
+<div class="paper">
+ <img src="assets/miccai25-ngraph.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">(Early Accept) Spatially Gene Expression Prediction using Dual-Scale Contrastive Learning</div>
+    <div class="pub-meta">
+      Mingcheng Qu, Yuncong Wu, Donglin Di, Yue Gao, Tonghua Su, Yang Song, <strong>Lei Fan(*Corr)</strong>
+    </div>
+    <div class="conference">Medical Image Computing and Computer Assisted Intervention (MICCAI), 2025</div>
+    <div class="links">
+      <a href="#">[ArXiv]</a>
+      <a href="#">[Code]</a>
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">A (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/miccai25-ngraph.png">
+</div>
+
+
+<div class="paper">
+ <img src="assets/miccai25-rehydil.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">(Early Accept) Hypergraph Tversky-Aware Domain Incremental Learning for Brain Tumor Segmentation with Missing Modalities</div>
+    <div class="pub-meta">
+      Junze Wang<sup>+</sup>, <strong>Lei Fan(<sup>+</sup> Equal)</strong>, Weipeng Jing, Donglin Di, Yang Song, Sidong Liu, Cong Cong(*Corr)
+    </div>
+    <div class="conference">Medical Image Computing and Computer Assisted Intervention (MICCAI), 2025</div>
+    <div class="links">
+      <a href="#">[ArXiv]</a>
+      <a href="#">[Code]</a>
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">A (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/miccai25-rehydil.png">
+</div>
+
+
+
+
+
+
+
+<div class="paper">
+<img src="assets/ijcai25.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Multimodal Cancer Survival Analysis via Hypergraph Learning with Cross-Modality Rebalance</div>
+    <div class="pub-meta">
+      Mingcheng Qu, Guang Yang, Donglin Di, Tonghua Su, Yue Gao, Yang Song, <strong>Lei Fan (*Corr)</strong>
+    </div>
+    <div class="conference">International Joint Conference on Artificial Intelligence (IJCAI), 2025</div>
+    <div class="links">
+      <a href="https://arxiv.org/abs/2505.11997">[ArXiv]</a>
+      <a href="https://github.com/MCPathology/MRePath">[Code]</a>
+    </div>
+    <div class="tags">
+      <span class="tag ccf-a">CCF-A</span>
+      <span class="tag core-a">A* (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/ijcai25.png">
+</div>
+
+
+
+<div class="paper">
+<img src="assets/manta_poster.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">MANTA: A Large-Scale Multi-View and Visual-Text Anomaly Detection Dataset for Tiny Objects</div>
+    <div class="pub-meta">
+      <strong>Lei Fan(*Corr)</strong>, Dongdong Fan, Zhiguang Hu, Yiwen Ding, Donglin Di, Kai Yi, Maurice Pagnucco, Yang Song 
+    </div>
+    <div class="conference">The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025</div>
+    <div class="links">
+      <a href="https://arxiv.org/abs/2412.04867">[ArXiv]</a>
+      <a href="https://grainnet.github.io/MANTA.html">[Project]</a>
+    </div>
+    <div class="tags">
+      <span class="tag ccf-a">CCF-A</span>
+      <span class="tag core-a">A* (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/manta_poster.png">
+</div>
+
+
+<div class="paper">
+<img src="assets/cvpr25-pbip.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Prototype-Based Image Prompting for Weakly Supervised Histopathological Image Segmentation</div>
+    <div class="pub-meta">
+      Qingchen Tang<sup>+</sup>, <strong>Lei Fan(<sup>+</sup>Equal)</strong>, Maurice Pagnucco, Yang Song 
+    </div>
+    <div class="conference">The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025    
+    </div>
+    <div class="links">
+      <a href="https://arxiv.org/abs/2503.12068">[ArXiv]</a>
+      <a href="https://github.com/QingchenTang/PBIP">[Code]</a>
+    </div>
+    <div class="tags">
+      <span class="tag ccf-a">CCF-A</span>
+      <span class="tag core-a">A* (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/cvpr25-pbip.png">
+</div>
+
+
+<div class="paper">
+<img src="assets/cvpr25-protonoparam.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Interpretable Image Classification via Non-parametric Part Prototype Learning      
+    </div>
+    <div class="pub-meta">
+      Zhijie Zhu<sup>+</sup>, <strong>Lei Fan(<sup>+</sup>Equal)</strong>, Maurice Pagnucco, Yang Song 
+    </div>
+    <div class="conference">The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025    
+    </div>
+    <div class="links">
+      <a href="https://arxiv.org/abs/2503.10247">[ArXiv]</a>
+      <a href="https://github.com/zijizhu/proto-non-param">[Code]</a>
+    </div>
+    <div class="tags">
+      <span class="tag ccf-a">CCF-A</span>
+      <span class="tag core-a">A* (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/cvpr25-protonoparam.png">
+</div>
+
+
+
+<div class="paper">
+<img src="assets/imce25-efdit.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">EFDiT: Efficient Fine-grained Image Generation Diffusion Transformer Models
+    </div>
+    <div class="pub-meta">
+      Kun Wang, Donglin Di, Tonghua Su, <strong>Lei Fan(*Corr)</strong>
+    </div>
+    <div class="conference">IEEE International Conference on Bioinformatics and Biomedicine (ICME), 2025
+    </div>
+    <div class="links">
+      
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">A (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/imce25-efdit.png">
+</div>
+
+
+
+<div class="paper">
+<img src="assets/icme25-edit.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Global-Local Aware Scene Text Editing
+    </div>
+    <div class="pub-meta">
+      Fuxiang Yang, Tonghua Su, Donglin Di, Yin Chen, Xiangqian Wu, Zhongjie Wang,  <strong>Lei Fan(*Corr)</strong>
+    </div>
+    <div class="conference">IEEE International Conference on Bioinformatics and Biomedicine (ICME), 2025
+    </div>
+    <div class="links">
+      
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">A (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/icme25-edit.png">
+</div>
+
+
+
+
+
+<div class="paper journal-paper">
+<img src="assets/pr25-hycon.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Multi-Modal Hypergraph Contrastive Learning for Medical Image Segmentation
+    </div>
+    <div class="pub-meta">
+      Weipeng Jing, Junze Wang, Donglin Di, Dandan Li, Yang Song, <strong>Lei Fan(*Corr)</strong> 
+    </div>
+    <div class="conference">Pattern Recognition (PR), 2025
+    </div>
+    <div class="links">
+      <a href="https://www.sciencedirect.com/science/article/pii/S0031320325002043" target="_blank">[Paper]</a>
+  <a href="https://github.com/reeive/HyCon" target="_blank">[Code]</a>
+    </div>
+    <div class="tags">
+      <span class="tag ccf-a">中科院一区 (IF:7.5, JCR:Q1)</span>
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">A (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/pr25-hycon.png">
+</div>
+
+
+
+<div class="paper journal-paper">
+<img src="assets/tim25-oscl.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">An Open-set Semi-Supervised Contrastive Learning for Bearing Fault Diagnosis
+    </div>
+    <div class="pub-meta">
+      Wenxiao Cheng, Xue Li(*Corr), Donglin Di, Xiaohe Wu, Lanshun Nie, Dechen Zhan, <strong>Lei Fan(*Corr)</strong> 
+    </div>
+    <div class="conference">IEEE Transactions on Instrumentation and Measurement (TIM), 2025
+    </div>
+    <div class="links">
+      
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">中科院二区 (IF:5.6, JCR:Q1)</span>
+    </div>
+  </div>
+</div>
+
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/tim25-oscl.png">
+</div>
+
+
+<h3>Before 2025 (12)</h3>
+
+<div class="paper">
+<img src="assets/aaai25-grpose.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">GRPose: Learning Graph Relations for Human Image Generation with Pose Priors
+    </div>
+    <div class="pub-meta">
+      Xiangchen Yin, Donglin Di, <strong>Lei Fan</strong>, Hao Li, Chen Wei, Xiaofei Gou, Yang Song, Xiao Sun, Xun Yang
+    </div>
+    <div class="conference">AAAI Conference on Artificial Intelligence (AAAI), 2025
+    </div>
+    <div class="links">
+      <a href="https://ojs.aaai.org/index.php/AAAI/article/view/33032">[Paper]</a>
+      <a href="https://arxiv.org/abs/2408.16540">[ArXiv]</a>
+      <a href="https://github.com/XiangchenYin/GRPose">[Code]</a>
+    </div>
+    <div class="tags">
+      <span class="tag ccf-a">CCF-A</span>
+      <span class="tag core-a">A* (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/aaai25-grpose.png">
+</div>
+
+
+
+
+<div class="paper">
+<img src="assets/bibm24.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Boundary-Guided Learning for Gene Expression Prediction in Spatial Transcriptomics
+    </div>
+    <div class="pub-meta">
+      Mingcheng Qu, Yuncong Wu, Donglin Di, Anyang Su, Tonghua Su, Yang Song, <strong>Lei Fan(*Corr)</strong>
+    </div>
+    <div class="conference">IEEE International Conference on Bioinformatics and Biomedicine (BIBM), 2024
+    </div>
+    <div class="links">
+      <a href="https://ieeexplore.ieee.org/abstract/document/10822232/" target="_blank">[Paper]</a>
+      <a href="https://arxiv.org/abs/2412.04072" target="_blank">[ArXiv]</a>
+    <a href="https://github.com/WcloudC0416/BG-TRIPLEX" target="_blank">[Code]</a>
+  
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">B (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/bibm24.png">
+</div>
+
+
+
+
+
+<div class="paper journal-paper">
+<img src="assets/tim24.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">ToCoAD: Two-Stage Contrastive Learning for Industrial Anomaly Detection
+    </div>
+    <div class="pub-meta">
+      Yun Liang, Zhiguang Hu, Junjie Huang, Donglin Di, Anyang Su, <strong>Lei Fan(*Corr)</strong>
+    </div>
+    <div class="conference">IEEE Transactions on Instrumentation and Measurement (TIM), 2024
+    </div>
+    <div class="links">
+      <a href="https://ieeexplore.ieee.org/abstract/document/10904852" target="_blank">[Paper]</a>
+      <a href="https://arxiv.org/abs/2407.01312" target="_blank">[ArXiv]</a>
+  
+  
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">中科院二区 (IF:5.6, JCR:Q1)</span>
+  
+      
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/tim24.png">
+</div>
+
+
+
+
+<div class="paper journal-paper">
+<img src="assets/tii24.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">GrainBrain: Multi-View Identification and Stratification of Defective Grain Kernels
+    </div>
+    <div class="pub-meta">
+      <strong>Lei Fan(*Corr)</strong>, Dongdong Fan, Yiwen Ding, Yong Wu, Donglin Di, Maurice Pagnucco, Yang Song
+    </div>
+    <div class="conference">IEEE Transactions on Industrial Informatics (TII), 2024
+    </div>
+    <div class="links">
+      <a href="https://ieeexplore.ieee.org/document/10858482" target="_blank">[Paper]</a>
+      <a href="https://grainnet.github.io/GrainBrain.html" target="_blank">[Project]</a>
+      <a href="https://github.com/GrainNet/GrainBrain" target="_blank">[Code]</a>
+  
+    </div>
+    <div class="tags">
+      <span class="tag ccf-a">中科院一区 (IF:11.7, JCR:Q1)</span>
+      <span class="tag ccf-c">CCF-C</span>
+      
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/tii24.png">
+</div>
+
+
+<div class="paper">
+<img src="assets/icassp24.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Patch-Wise Augmentation for Anomaly Detection and Localization
+    </div>
+    <div class="pub-meta">
+      <strong>Lei Fan(*Corr)</strong>, Yiwen Ding, Maurice Pagnucco, Yang Song
+    </div>
+    <div class="conference">IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2024
+    </div>
+    <div class="links">
+      <a href="https://ieeexplore.ieee.org/abstract/document/10446994">[Paper]</a>
+  
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">B (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/icassp24.png">
+</div>
+
+
+
+<div class="paper">
+<img src="assets/ecai23.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Identifying the Defective: Detecting Damaged Grains for Cereal Appearance Inspection
+    </div>
+    <div class="pub-meta">
+      <strong>Lei Fan(*Corr)</strong>, Yiwen Ding, Dongdong Fan, Yong Wu, Maurice Pagnucco, Yang Song 
+    </div>
+    <div class="conference">European Conference on Artificial Intelligence (ECAI), 2023
+    </div>
+    <div class="links">
+      <a href="https://ebooks.iospress.nl/doi/10.3233/FAIA230329" target="_blank">[Paper]</a>
+    <a href="https://arxiv.org/abs/2311.11901" target="_blank">[ArXiv]</a>
+    <a href="https://github.com/hellodfan/AI4GrainInsp" target="_blank">[Project]</a>
+  
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">B (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/ecai23.png">
+</div>
+
+
+
+<div class="paper journal-paper">
+<img src="assets/ral23.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title"><i>AV4GAInsp</i>: An Efficient Dual-Camera System for Identifying Defective Kernels of Cereal Grains
+    </div>
+    <div class="pub-meta">
+      <strong>Lei Fan(*Corr)</strong>, Dongdong Fan, Yiwen Ding, Yong Wu, Hongxia Chu, Maurice Pagnucco, Yang Song(*Corr)
+    </div>
+    <div class="conference">IEEE Robotics and Automation Letters (RA-L), 2023
+    </div>
+    <div class="links">
+       <a href="https://ieeexplore.ieee.org/abstract/document/10336896" target="_blank">[Paper]</a>
+    <a href="https://github.com/hellodfan/GrainDet/" target="_blank">[Project]</a>
+  
+  
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">中科院二区 (IF:5.2, JCR:Q1)</span>
+  
+      
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/ral23.png">
+</div>
+
+
+
+
+
+
+<div class="paper journal-paper">
+<img src="assets/sdata23.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">An annotated grain kernel image database for visual quality inspection
+    </div>
+    <div class="pub-meta">
+      <strong>Lei Fan(*Corr)<sup>+</sup></strong>, Yiwen Ding<sup>+</sup>, Dongdong Fan, Yong Wu, Hongxia Chu, Maurice Pagnucco, Yang Song(*Corr)
+    </div>
+    <div class="conference">Scientific Data, 2023
+    </div>
+    <div class="links">
+        <a href="https://www.nature.com/articles/s41597-023-02660-8" target="_blank">[Paper]</a>
+    <a href="https://github.com/hellodfan/GrainSet" target="_blank">[Project]</a>
+  
+  
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">中科院二区 (IF:9.8, JCR:Q1)</span>
+  
+      
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/sdata23.png">
+</div>
+
+
+
+<div class="paper">
+<img src="assets/cvpr22.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title"><i>GrainSpace</i>: A Large-scale Dataset for Fine-grained and Domain-adaptive Recognition of Cereal Grains
+    </div>
+    <div class="pub-meta">
+      <strong>Lei Fan(*Corr)<sup>+</sup></strong>, Yiwen Ding<sup>+</sup>, Dongdong Fan, Donglin Di, Maurice Pagnucco, Yang Song 
+    </div>
+    <div class="conference">IEEE/CVF Computer Vision and Pattern Recognition Conference (CVPR), 2022
+    </div>
+    <div class="links">
+      <a href="https://openaccess.thecvf.com/content/CVPR2022/html/Fan_GrainSpace_A_Large-Scale_Dataset_for_Fine-Grained_and_Domain-Adaptive_Recognition_of_CVPR_2022_paper.html" target="_blank">[PDF]</a>
+    <a href="https://arxiv.org/abs/2203.05306" target="_blank">[ArXiv]</a>
+    <a href="https://github.com/hellodfan/GrainSpace" target="_blank">[Project]</a>
+    </div>
+    <div class="tags">
+      <span class="tag ccf-a">CCF-A</span>
+      <span class="tag core-a">A* (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/cvpr22.png">
+</div>
+
+
+
+<div class="paper journal-paper">
+<img src="assets/tmi22.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Cancer Survival Prediction From Whole Slide Images With Self-Supervised Learning and Slide Consistency
+    </div>
+    <div class="pub-meta">
+      <strong>Lei Fan(*Corr)</strong>, Arcot Sowmya, Erik Meijering, Yang Song(*Corr)
+    </div>
+    <div class="conference">IEEE Transactions on Medical Imaging (TMI), 2022
+    </div>
+    <div class="links">
+        <a href="https://ieeexplore.ieee.org/abstract/document/9980424" target="_blank">[PDF]</a>
+     
+      </div>
+    <div class="tags">
+      <span class="tag ccf-a">中科院一区 (IF:10.6, JCR:Q1)</span>
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">A* (Australian Core)</span>
+  
+      
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/tmi22.png">
+</div>
+
+
+
+<div class="paper">
+<img src="assets/miccai22.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Fast FF-to-FFPE Whole Slide Image Translation via Laplacian Pyramid and Contrastive Learning
+    </div>
+    <div class="pub-meta">
+      <strong>Lei Fan(*Corr)</strong>, Arcot Sowmya, Erik Meijering, Yang Song 
+    </div>
+    <div class="conference">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI), 2022
+    </div>
+    <div class="links">
+      <a href="https://link.springer.com/chapter/10.1007/978-3-031-16434-7_40" target="_blank">[PDF]</a>
+  
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">A (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/miccai22.png">
+</div>
+
+
+<div class="paper">
+<img src="assets/miccai21.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">(Early Accept) Learning Visual Features by Colorization for Slide-Consistent Survival Prediction from Whole Slide Images
+    </div>
+    <div class="pub-meta">
+      <strong>Lei Fan</strong>, Arcot Sowmya, Erik Meijering, Yang Song(*Corr) 
+    </div>
+    <div class="conference">International Conference on Medical Image Computing and Computer-Assisted Intervention (MICCAI), 2021
+    </div>
+    <div class="links">
+      <a href="https://link.springer.com/chapter/10.1007/978-3-030-87237-3_57" target="_blank">[PDF]</a>
+  
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">CCF-B</span>
+      <span class="tag core-a">A (Australian Core)</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/miccai21.png">
+</div>
+
+
+<section class="activities">
+  <h2>Activities</h2>
+
+  <ul>
+    <li>Serving as <strong>Guest Editor</strong>:
+      <ul>
+        <li><a href="https://www.frontiersin.org/research-topics/65822/high-order-correlation-mining-in-medical-applications">Frontiers in Medicine & Frontiers in Digital Health</a></li>
+      </ul>
+    </li>
+
+    <li>Serving as <strong>Reviewers</strong>:
+      <ul>
+        <li><span class="subhead">Conference:</span>
+          <ul>
+            <li>CVPR25/24/23, ICCV25/23, ECCV24</li>
+            <li>MICCAI25/24/23, ECAI23, BIBM24, ICRA23, ICME24, ICASSP25/24</li>
+            <li>ISBI25, PRICAI24, IJCNN23, KR24</li>
+          </ul>
+        </li>
+        <li><span class="subhead">Journal:</span>
+          <ul>
+            <li>IEEE Transactions on Medical Imaging</li>
+            <li>IEEE Transactions on Intelligent Transportation Systems</li>
+            <li>IEEE Sensors Letters</li>
+            <li>IEEE ACCESS</li>
+            <li>IET Image Processing</li>
+            <li>Journal of Field Robotics</li>
+            <li>Journal of Supercomputing</li>
+            <li>Journal of Real-Time Image Processing</li>
+            <li>Knowledge-based System</li>
+            <li>Scientific Reports</li>
+            <li>Scientific Data</li>
+            <li>Frontiers in Radiology</li>
+          </ul>
+        </li>
+        <li><em>IEEE Transactions on Medical Imaging (TMI)</em> Distinguished Reviewer 2024</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+
+</body>
+</html>
+
+
+<script>
+  function openLightbox(src) {
+    document.getElementById("lightbox-img").src = src;
+    document.getElementById("lightbox").style.display = "flex";
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+</script>
