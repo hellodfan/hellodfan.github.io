@@ -4,6 +4,20 @@
   <meta charset="UTF-8" />
   <title>Lei Fan</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const items = document.querySelectorAll(".paper-item");
+    items.forEach((item, index) => {
+      if (index >= 15) {
+        item.style.display = "none";
+      }
+    });
+  });
+</script>
+
+
   <style>
     body {
       font-family: "Segoe UI", sans-serif;
@@ -177,6 +191,7 @@
 .ccf-b { background-color: #f39c12; }     /* 橙色 */
 .ccf-c { background-color: #3498db; }     /* 蓝色 */
 .core-a { background-color: #2ecc71; }    /* 绿色 */
+.core-b { background-color: #d293df; }    /* 紫色 */
 
 .thumbnail {
   cursor: zoom-in;
@@ -249,6 +264,66 @@
 }
 
 
+.paper-item {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  margin-bottom: 2px;
+  border-radius: 2px;
+}
+
+
+.news-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.news-item .news-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+/* 不同状态对应不同颜色背景 */
+.news-item.active {
+  background-color: #e6ffe8; /* 蓝色 */
+  border-left: 4px solid #0bf103;
+}
+
+.news-item.warning {
+  background-color: #fff7e6; /* 橙色 */
+  border-left: 4px solid #fa8c16;
+}
+
+.news-item.expired {
+  background-color: #f5f5f5; /* 灰色 */
+  border-left: 4px solid #999;
+}
+
+.news-item.expired .news-content {
+  text-decoration: line-through;
+  text-decoration-color: #d9534f;   /* 红色删除线 */
+  text-decoration-thickness: 3px;   /* 加粗 */
+  color: #999;                      /* 文字变灰 */
+}
+
+.news-link {
+  color: #d9534f;           /* 红色 */
+  text-decoration: underline;
+  font-style: italic;        /* 斜体 */
+  font-weight: bold;         /* 粗体斜体结合，更显眼 */
+}
+
+.news-link:hover {
+  color: #b52b27;            /* 悬停变深 */
+  text-decoration-thickness: 3px;
+}
+
+
+
   </style>
 </head>
 <body>
@@ -275,19 +350,51 @@
 
 
 
+<div class="news">
+  <h2>Special Issues & Announcements</h2>
 
-  <div class="about">
-    <h2>About Me</h2>
-    <p>I am currently a Postdoctoral Fellow at the Centre for Healthy Brain Ageing (CHeBA), UNSW. I received my PhD from UNSW Sydney in 2024, specializing in computer vision and machine learning.</p>
-    <p><strong>My Research Interests:</strong></p>
-    <ul>
-      <li>Whole Slide Image Analysis</li>
-      <li>Visual Anomaly Detection</li>
-      <li>Generative Models and VLM/LLM/VLA</li>
-      <li>Grain Image Analysis</li>
-      <li>MRI Data Analysis</li>
-    </ul>
+  <div class="news-item active">
+    <img src="assets/fire.png" class="news-icon" alt="News icon">
+    <div class="news-date">[2025–10]</div>
+    <div class="news-content">
+      <span class="paper-count one">
+        We are launching a Special Issue on Frontiers in Radiology: 
+        <a href="https://www.frontiersin.org/research-topics/73803/agentic-ai-and-large-language-models-for-radiology" target="_blank", class="news-link">
+          Agentic AI and Large Language Models for Radiology 
+        </a>
+      </span>
+    </div>
   </div>
+
+  <div class="news-item active">
+    <img src="assets/fire.png" class="news-icon" alt="News icon">
+    <div class="news-date">[2025–08]</div>
+    <div class="news-content">
+      <span class="paper-count one">
+        We are launching a Workshop in  ACM MM Asia 2025: 
+        <a href="https://mmasia2025.org/multimodal_multiethnic" target="_blank", class="news-link">
+           Multimodal Multiethnic Talking-Head Video Generation
+        </a>
+      </span>
+    </div>
+  </div>
+
+  <div class="news-item expired">
+    <img src="assets/snowflake.png" class="news-icon" alt="News icon">
+    <div class="news-date">[2025–06]</div>
+    <div class="news-content">
+      <span class="paper-count one">
+        We are launching a Special Issue on Frontiers in Medicine: 
+         <a href="https://www.frontiersin.org/research-topics/65822/unveiling-complex-medical-interdependencies-through-high-order-correlation-mining/magazine" target="_blank", class="news-link">
+          Unveiling Complex Medical Interdependencies Through High-Order Correlation Mining 
+        </a>
+
+      </span>
+    </div>
+  </div>
+</div>
+
+
 
 
 
@@ -295,7 +402,27 @@
   <div class="news">
     <h2>News</h2>
 
-      <div class="news-item">
+      <div class="paper-item">
+      <img src="assets/koala.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2025–10]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as Equa+)</span> has been accepted for 
+        <span class="venue">IEEE BIBM2025</span>.
+      </div>
+    </div>
+
+      <div class="paper-item">
+      <img src="assets/koala.png" class="news-icon" alt="News icon">
+      <div class="news-date">[2025–10]</div>
+      <div class="news-content">
+        <span class="paper-count one">1 paper (as Equa+)</span> has been accepted for 
+        <span class="venue">ACM MM Asia2025</span>.
+      </div>
+    </div>
+
+
+
+      <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2025–07]</div>
       <div class="news-content">
@@ -304,7 +431,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2025–06]</div>
       <div class="news-content">
@@ -313,7 +440,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2025–06]</div>
       <div class="news-content">
@@ -322,7 +449,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
       <div class="news-date">[2025–05]</div>
       <div class="news-content">
@@ -331,7 +458,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       
       <div class="news-date">[2025–04]</div>
@@ -341,7 +468,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
       <div class="news-date">[2025–03]</div>
       <div class="news-content">
@@ -351,7 +478,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2025–03]</div>
       <div class="news-content">
@@ -362,7 +489,7 @@
     </div>
 
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2025–02]</div>
       <div class="news-content">
@@ -372,7 +499,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
       <div class="news-date">[2024–12]</div>
       <div class="news-content">
@@ -382,7 +509,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2024–12]</div>
       <div class="news-content">
@@ -393,7 +520,7 @@
     </div>
 
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
       <div class="news-date">[2024–11]</div>
       <div class="news-content">
@@ -402,7 +529,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2024–10]</div>
       <div class="news-content">
@@ -411,7 +538,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2023–12]</div>
       <div class="news-content">
@@ -420,7 +547,7 @@
       </div>
     </div>
 
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
       <div class="news-date">[2023–11]</div>
       <div class="news-content">
@@ -429,7 +556,7 @@
       
       </div>
     </div>
-    <div class="news-item">
+    <div class="paper-item">
       <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
       <div class="news-date">[2023–11]</div>
       <div class="news-content">
@@ -438,7 +565,7 @@
       </div>
     </div>
 
-        <div class="news-item">
+        <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2023–07]</div>
       <div class="news-content">
@@ -448,7 +575,7 @@
     </div>
 
 
-       <div class="news-item">
+       <div class="paper-item">
       <img src="assets/kangaroo.png" class="news-icon" alt="News icon">
       <div class="news-date">[2022–10]</div>
       <div class="news-content">
@@ -458,7 +585,7 @@
     </div>
 
 
-        <div class="news-item">
+        <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2022–05]</div>
       <div class="news-content">
@@ -468,7 +595,7 @@
       </div>
     </div>
 
-        <div class="news-item">
+        <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2022–05]</div>
       <div class="news-content">
@@ -478,7 +605,7 @@
       </div>
     </div>
 
-        <div class="news-item">
+        <div class="paper-item">
       <img src="assets/koala.png" class="news-icon" alt="News icon">
       <div class="news-date">[2021–05]</div>
       <div class="news-content">
@@ -487,13 +614,35 @@
       </div>
     </div>
 
-    <!-- 可继续添加更多新闻项... -->
   </div>
 
 
   <h2>Publications</h2>
 <h3>(+ Equal Contribution, * Corresponding Author)</h3>
 <h3>2025 </h3>
+
+
+<div class="paper">
+ <img src="assets/mm-sage.png" alt="Preview" class="thumbnail" onclick="openLightbox(this.src)">
+ <div class="paper-content">
+    <div class="title">Cross-Stain Contrastive Learning for Paired Immunohistochemistry and Histopathology Slide Representation Learning</div>
+    <div class="pub-meta">
+      Yizhi Zhang<sup>+</sup>, <strong>Lei Fan<sup>+</sup></strong>, Zhulin Tao*, Donglin Di, Yang Song, Sidong Liu, Cong Cong*
+    </div>
+    <div class="conference">IEEE International Conference on Bioinformatics and Biomedicine (BIBM), 2025</div>
+    <div class="links">
+      <a href="">[ArXiv]</a>
+      <a href="">[Code]</a>
+    </div>
+    <div class="tags">
+      <span class="tag ccf-b">CCF-B</span>
+    </div>
+  </div>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="assets/mm-sage.png">
+</div>
 
 
 
@@ -510,7 +659,7 @@
       <a href="https://github.com/amoreZgx1n/SAGE">[Code]</a>
     </div>
     <div class="tags">
-      <span class="tag ccf-b">CCF-A</span>
+      <span class="tag ccf-a">CCF-A</span>
       <span class="tag core-a">A* (Australian Core)</span>
     </div>
   </div>
@@ -535,7 +684,7 @@
       <a href="https://github.com/sunshibo1234/LLaPa">[Code]</a>
     </div>
     <div class="tags">
-      <span class="tag ccf-b">CCF-A</span>
+      <span class="tag ccf-a">CCF-A</span>
       <span class="tag core-a">A* (Australian Core)</span>
     </div>
   </div>
@@ -560,7 +709,7 @@
       <a href="https://lgc-ad.github.io/">[Project]</a>
     </div>
     <div class="tags">
-      <span class="tag ccf-b">CCF-A</span>
+      <span class="tag ccf-a">CCF-A</span>
       <span class="tag core-a">A* (Australian Core)</span>
     </div>
   </div>
@@ -582,11 +731,11 @@
     </div>
     <div class="conference">IEEE/CVF International Conference on Computer Vision (ICCV), 2025</div>
     <div class="links">
-      <a href="https://arxiv.org/abs/2410.07151v1">[ArXiv]</a>
+      <a href="https://arxiv.org/abs/2410.07151">[ArXiv]</a>
       <a href="https://dh-facevid-1k.github.io/DH-FaceVid-1K/">[Project]</a>
     </div>
     <div class="tags">
-      <span class="tag ccf-b">CCF-A</span>
+      <span class="tag ccf-a">CCF-A</span>
       <span class="tag core-a">A* (Australian Core)</span>
     </div>
   </div>
@@ -858,7 +1007,7 @@
     <div class="tags">
       <span class="tag ccf-a">中科院一区 (IF:7.5, JCR:Q1)</span>
       <span class="tag ccf-b">CCF-B</span>
-      <span class="tag core-a">A (Australian Core)</span>
+      <span class="tag core-a">A* (Australian Core)</span>
     </div>
   </div>
 </div>
@@ -945,7 +1094,6 @@
     </div>
     <div class="tags">
       <span class="tag ccf-b">CCF-B</span>
-      <span class="tag core-a">B (Australian Core)</span>
     </div>
   </div>
 </div>
@@ -1034,7 +1182,7 @@
     </div>
     <div class="tags">
       <span class="tag ccf-b">CCF-B</span>
-      <span class="tag core-a">B (Australian Core)</span>
+      <span class="tag core-b">B (Australian Core)</span>
     </div>
   </div>
 </div>
@@ -1063,7 +1211,7 @@
     </div>
     <div class="tags">
       <span class="tag ccf-b">CCF-B</span>
-      <span class="tag core-a">B (Australian Core)</span>
+      <span class="tag core-a">A (Australian Core)</span>
     </div>
   </div>
 </div>
@@ -1253,6 +1401,7 @@
   <ul>
     <li>Serving as <strong>Guest Editor</strong>:
       <ul>
+        <li><a href="https://www.frontiersin.org/research-topics/73803/agentic-ai-and-large-language-models-for-radiology">Frontiers in Radiology</a></li>
         <li><a href="https://www.frontiersin.org/research-topics/65822/high-order-correlation-mining-in-medical-applications">Frontiers in Medicine & Frontiers in Digital Health</a></li>
       </ul>
     </li>
@@ -1261,27 +1410,36 @@
       <ul>
         <li><span class="subhead">Conference:</span>
           <ul>
-            <li>CVPR25/24/23, ICCV25/23, NeurIPS25, ECCV24</li>
-            <li>MICCAI25/24/23, ECAI23, BIBM24, ICRA23, ICME24, ICASSP25/24</li>
-            <li>ISBI25, PRICAI24, IJCNN23, KR24</li>
+            <li>CVPR25(3)/24(2)/23(4), ICCV25(4)/23(3), NeurIPS25(2), ECCV24(4), AAAI26(6)</li>
+            <li>MICCAI25(5)/24(4)/23(6), ECAI23(2), BIBM25(8)/24(5), ICRA23(1), ICME25(5), ICASSP25(3)</li>
+            <li>ISBI25(5)/24(1)/23(1), PRICAI23(3), IJCNN23(5), KR24(2)</li>
+            <li> ICAconf (6)</li>
           </ul>
         </li>
         <li><span class="subhead">Journal:</span>
           <ul>
-            <li>IEEE Transactions on Medical Imaging</li>
-            <li>IEEE Transactions on Intelligent Transportation Systems</li>
-            <li>IEEE Sensors Letters</li>
-            <li>IEEE ACCESS</li>
-            <li>IET Image Processing</li>
-            <li>Journal of Field Robotics</li>
-            <li>Journal of Supercomputing</li>
-            <li>Journal of Real-Time Image Processing</li>
-            <li>Chemical and Biological Technologies in Agriculture</li>
-            <li>Knowledge-based System</li>
-            <li>Pattern Recognition</li>
-            <li>Scientific Reports</li>
-            <li>Scientific Data</li>
-            <li>Frontiers in Radiology</li>
+            <li>IEEE Transactions on Medical Imaging (5)</li>
+            <li>IEEE Transactions on Intelligent Transportation Systems (1)</li>
+            <li>IEEE Transactions on Image Processing (2)</li>
+            <li>IEEE Journal of Biomedical and Health Informatics (2)</li>
+            <li>IEEE ACCESS (27)</li>
+            <li>IET Image Processing (5)</li>
+            <li>Information Processing and Management (1)</li>
+            <li>Journal of Field Robotics (1)</li>
+            <li>Journal of Supercomputing (1)</li>
+            <li>Journal of Real-Time Image Processing (2)</li>
+            <li>International Journal of Computer Applications in Technology (1)</li>
+            <li>Chemical and Biological Technologies in Agriculture (1)</li>
+            <li>Knowledge-based System (11)</li>
+            <li>Pattern Recognition (2)</li>
+            <li>Scientific Reports (7)</li>
+            <li>Scientific Data (1)</li>
+            <li>Rice Science (1)</li>
+            <li>Processes (1)</li>
+            <li>Measurement (1)</li>
+            <li>Vicinagearth (1)</li>
+            <li>Frontiers in Radiology (1)</li>
+            <li>Frontiers In Digital Health (1)</li>
           </ul>
         </li>
         <li><em>IEEE Transactions on Medical Imaging (TMI)</em> Distinguished Reviewer 2024</li>
